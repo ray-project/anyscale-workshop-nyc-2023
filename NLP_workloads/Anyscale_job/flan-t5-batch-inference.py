@@ -138,4 +138,6 @@ outputs = input_data_pd.join(prediction_pd, how="inner").head(n=7)
 # Report outputs to Anyscale #
 ##############################
 
-anyscale.job.output(outputs.to_dict())
+print(outputs)
+
+anyscale.job.output(outputs.to_json(orient="index"))
