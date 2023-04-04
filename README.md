@@ -2,7 +2,7 @@
 
 © 2023, Anyscale Inc. All Rights Reserved
 
-<img src="https://technical-training-assets.s3.us-west-2.amazonaws.com/Anyscale-generic/Anyscale-logo-horizontal.png" width="30%" loading="lazy">
+<img src="https://technical-training-assets.s3.us-west-2.amazonaws.com/Anyscale-generic/Anyscale-logo-horizontal.png" width="50%" loading="lazy">
 
 <a href="https://forms.gle/9TSdDYUgxYs8SA9e8"><img src="https://img.shields.io/badge/Ray-Join%20Slack-blue" alt="join-ray-slack"></a>
 <a href="https://discuss.ray.io/"><img src="https://img.shields.io/badge/Discuss-Ask%20Questions-blue" alt="discuss"></a>
@@ -14,7 +14,7 @@ Welcome to the Scaling NLP Workloads with Ray and Anyscale tutorial!
 
 This tutorial is intended to teach you how you can use Ray AI Runtime and Anyscale to scale NLP applications and utilize large compute clusters. You'll work on the text generation use cases. You'll fine-tune Google's FLAN-T5 model on the recent Alpaca dataset. You will also run distributed hyperparameter tuning and batch inference.
 
-<img src="https://technical-training-assets.s3.us-west-2.amazonaws.com/NLP_workloads/Text_generation/nlp_pipeline_full.png" width="80%" loading="lazy">
+<img src="https://technical-training-assets.s3.us-west-2.amazonaws.com/NLP_workloads/Text_generation/nlp_pipeline_full.png" width="100%" loading="lazy">
 
 ## Connect with the Ray community
 
