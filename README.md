@@ -12,7 +12,9 @@ Welcome to the Scaling NLP Workloads with Ray and Anyscale tutorial!
 
 ## Tutorial content
 
-This tutorial is intended to teach you how you can use Ray AI Runtime and Anyscale to scale NLP applications and utilize large compute clusters. You'll work on the text generation use cases. You'll fine-tune Google's FLAN-T5 model on the recent Alpaca dataset. You will also run distributed hyperparameter tuning and batch inference.
+This tutorial is intended to teach you how you can use Ray AI Runtime and Anyscale to scale NLP applications and utilize large compute clusters.
+
+You'll work on the text generation use cases (NLP). You'll fine-tune Google's FLAN-T5 model on the recent Alpaca dataset. You will also run distributed hyperparameter tuning and batch inference.
 
 <img src="https://technical-training-assets.s3.us-west-2.amazonaws.com/NLP_workloads/Text_generation/nlp_pipeline_full.png" width="100%" loading="lazy">
 
