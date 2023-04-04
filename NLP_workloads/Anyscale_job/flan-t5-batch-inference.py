@@ -21,6 +21,10 @@ num_workers = 2
 batch_size = 2
 use_gpu = True
 
+########
+# DATA #
+########
+
 hf_dataset = load_dataset("tatsu-lab/alpaca", split="train").train_test_split(
     test_size=0.2, seed=57
 )
@@ -33,6 +37,9 @@ batch_preprocessor = BatchMapper(
     preprocess_function, batch_format="pandas", batch_size=4096
 )
 
+############
+# TRAINING #
+############
 
 def trainer_init_per_worker(
     train_dataset: ray.data.Dataset,
@@ -103,11 +110,11 @@ trainer = HuggingFaceTrainer(
     preprocessor=batch_preprocessor,
 )
 
-############
-# TRAINING #
-############
-
 result = trainer.fit()
+
+#############
+# Inference #
+#############
 
 predictor = BatchPredictor.from_checkpoint(
     checkpoint=result.checkpoint,
@@ -119,10 +126,6 @@ predictor = BatchPredictor.from_checkpoint(
     torch_dtype=torch.float16,
 )
 
-#############
-# Inference #
-#############
-
 prediction = predictor.predict(
     validation_dataset,
     num_gpus_per_worker=int(use_gpu),
@@ -133,9 +136,3 @@ prediction = predictor.predict(
 input_data_pd = validation_dataset.to_pandas()
 prediction_pd = prediction.to_pandas()
 outputs = input_data_pd.join(prediction_pd, how="inner").head(n=7)
-
-##############################
-# Report outputs to Anyscale #
-##############################
-
-anyscale.job.output(outputs.to_dict(orient="index"))
