@@ -103,6 +103,10 @@ trainer = HuggingFaceTrainer(
     preprocessor=batch_preprocessor,
 )
 
+############
+# TRAINING #
+############
+
 result = trainer.fit()
 
 predictor = BatchPredictor.from_checkpoint(
@@ -115,6 +119,10 @@ predictor = BatchPredictor.from_checkpoint(
     torch_dtype=torch.float16,
 )
 
+#############
+# Inference #
+#############
+
 prediction = predictor.predict(
     validation_dataset,
     num_gpus_per_worker=int(use_gpu),
@@ -124,6 +132,10 @@ prediction = predictor.predict(
 
 input_data_pd = validation_dataset.to_pandas()
 prediction_pd = prediction.to_pandas()
-input_data_pd.join(prediction_pd, how="inner")
+outputs = input_data_pd.join(prediction_pd, how="inner").head(n=7)
 
-anyscale.job.output({"done": True})
+##############################
+# Report outputs to Anyscale #
+##############################
+
+anyscale.job.output(outputs.to_dict())
