@@ -4,4 +4,4 @@ cluster_env: "aws-nyc-2023:5"
 entrypoint: python flan-t5-batch-inference.py
 
 # This is only meant to be executed from an Anyscale Workspace:
-# anyscale job submit flan-t5-batch-inference-job-setup-yml
+# anyscale job submit flan-t5-batch-inference-job-setup.yml
